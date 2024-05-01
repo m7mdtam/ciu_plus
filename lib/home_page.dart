@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+// ignore: unused_import
+import 'package:ciu_plus/home_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,14 +15,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 109, 129, 149),
+        backgroundColor: Color.fromRGBO(168, 170, 172, 1),
         title: Text(
           'CIU Plus ',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
         ),
       ),
       drawer: Drawer(
-        backgroundColor: Color.fromARGB(255, 103, 180, 219),
+        backgroundColor: Color.fromARGB(255, 174, 172, 172),
         child: Container(
           padding: EdgeInsets.all(8),
           child: ListView(
@@ -56,6 +58,10 @@ class _HomePageState extends State<HomePage> {
                 height: 20,
               ),
               ListTile(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => HomePage()));
+                },
                 leading: Icon(
                   Icons.home,
                   size: 40,
@@ -130,9 +136,53 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(fontSize: 25),
                 ),
               ),
+              SizedBox(
+                height: 250,
+              ),
+              Container(
+                padding: EdgeInsets.all(5),
+                child: Text(
+                  "CopyRight",
+                ),
+              )
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color.fromRGBO(168, 170, 172, 1),
+        selectedLabelStyle: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
+        ),
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.message_sharp,
+                color: const Color.fromARGB(255, 12, 11, 11),
+                size: 30,
+              ),
+              label: 'Chats'),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.call,
+                size: 30,
+                color: Colors.white,
+              ),
+              label: 'Audio Calls'),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.video_call_rounded,
+              size: 30,
+              color: Colors.white,
+            ),
+            label: 'Video Calls',
+          ),
+        ],
       ),
     );
   }
