@@ -1,8 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, sized_box_for_whitespace
 
+import 'package:ciu_plus/aboutUs.dart';
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:ciu_plus/home_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int selected = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,6 +102,10 @@ class _HomePageState extends State<HomePage> {
                 height: 20,
               ),
               ListTile(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => AboutUs()));
+                },
                 leading: Icon(
                   Icons.help,
                   size: 40,
@@ -150,9 +155,14 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (val) {
+          setState(() {
+            selected = val;
+          });
+        },
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.white,
-        currentIndex: 0,
+        currentIndex: selected,
         backgroundColor: Color.fromRGBO(168, 170, 172, 1),
         selectedLabelStyle: TextStyle(
           fontSize: 15,
