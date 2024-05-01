@@ -150,6 +150,9 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.white,
+        currentIndex: 0,
         backgroundColor: Color.fromRGBO(168, 170, 172, 1),
         selectedLabelStyle: TextStyle(
           fontSize: 15,
@@ -163,7 +166,6 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.message_sharp,
-                color: const Color.fromARGB(255, 12, 11, 11),
                 size: 30,
               ),
               label: 'Chats'),
@@ -171,14 +173,12 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(
                 Icons.call,
                 size: 30,
-                color: Colors.white,
               ),
               label: 'Audio Calls'),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.video_call_rounded,
               size: 30,
-              color: Colors.white,
             ),
             label: 'Video Calls',
           ),
